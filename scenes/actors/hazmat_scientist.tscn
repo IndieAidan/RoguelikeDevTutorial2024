@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0i1v3ymybnqn"]
+
+[ext_resource type="Texture2D" uid="uid://ejrclmjgb5tc" path="res://assets/textures/actors/hazmat_1.png" id="1_rltfj"]
+[ext_resource type="Script" path="res://scripts/actors/enemy.gd" id="1_si7mv"]
+[ext_resource type="PackedScene" uid="uid://btchh0no0pvt5" path="res://scenes/components/health_component.tscn" id="2_k1u0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdpjh"]
+size = Vector2(24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0dtl"]
+atlas = ExtResource("1_rltfj")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5d3f"]
+atlas = ExtResource("1_rltfj")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w6ep2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0dtl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5d3f")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Hazmat_Scientist" type="Node2D" groups=["enemies"]]
+script = ExtResource("1_si7mv")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 127
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_tdpjh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_w6ep2")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.551656
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_k1u0u")]
