@@ -1,6 +1,6 @@
 extends Area2D
 
-@onready var TILE_SIZE = 24
+@onready var TILE_SIZE = 32
 @onready var ray = $RayCast2D
 @onready var moving = false
 @onready var turn_length = 0.1 # time each turn takes in seconds

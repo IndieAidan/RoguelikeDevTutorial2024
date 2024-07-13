@@ -1,36 +1,36 @@
 [gd_scene load_steps=10 format=3 uid="uid://bal0a2r3npsbs"]
 
 [ext_resource type="Script" path="res://scripts/actors/player.gd" id="1_iga0k"]
-[ext_resource type="Texture2D" uid="uid://vj047n0bsvxl" path="res://assets/textures/actors/player/player_magnetic.png" id="2_4w650"]
 [ext_resource type="PackedScene" uid="uid://btchh0no0pvt5" path="res://scenes/components/health_component.tscn" id="2_sqc82"]
+[ext_resource type="Texture2D" uid="uid://dbnbynu1t2nx3" path="res://assets/textures/Backterria_32x32_1.png" id="3_54o3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2204h"]
-size = Vector2(24, 24)
+size = Vector2(32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgvhm"]
-atlas = ExtResource("2_4w650")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt4s6"]
+atlas = ExtResource("3_54o3v")
+region = Rect2(96, 1088, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0vml7"]
-atlas = ExtResource("2_4w650")
-region = Rect2(24, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_367fr"]
+atlas = ExtResource("3_54o3v")
+region = Rect2(128, 1088, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mf61h"]
-atlas = ExtResource("2_4w650")
-region = Rect2(0, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lva2t"]
+atlas = ExtResource("3_54o3v")
+region = Rect2(96, 1088, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ya8br"]
-atlas = ExtResource("2_4w650")
-region = Rect2(24, 0, 24, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhied"]
+atlas = ExtResource("3_54o3v")
+region = Rect2(128, 1088, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2xqxx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vgvhm")
+"texture": SubResource("AtlasTexture_vt4s6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0vml7")
+"texture": SubResource("AtlasTexture_367fr")
 }],
 "loop": true,
 "name": &"idle",
@@ -38,10 +38,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mf61h")
+"texture": SubResource("AtlasTexture_lva2t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ya8br")
+"texture": SubResource("AtlasTexture_rhied")
 }],
 "loop": true,
 "name": &"moving",
@@ -60,7 +60,7 @@ shape = SubResource("RectangleShape2D_2204h")
 max_health = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -11)
+position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_2xqxx")
 animation = &"moving"
 autoplay = "idle"
