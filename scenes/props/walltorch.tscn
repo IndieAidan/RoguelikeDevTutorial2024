@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci3yjueuftoq4"]
+
+[ext_resource type="Texture2D" uid="uid://dbnbynu1t2nx3" path="res://assets/textures/Backterria_32x32_1.png" id="1_kv13o"]
+[ext_resource type="Texture2D" uid="uid://b2uoo61pb13t5" path="res://assets/textures/ranges/light_range_32x32_test1.png" id="2_7hsxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3i3nk"]
+size = Vector2(30, 29)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p85pr"]
+polygon = PackedVector2Array(-16, -8, -16, -16, 16, -16, 16, -8)
+
+[node name="WallTorch" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kv13o")
+region_enabled = true
+region_rect = Rect2(192, 672, 32, 32)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.682353, 0.403922, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("2_7hsxq")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 126
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3i3nk")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_p85pr")
