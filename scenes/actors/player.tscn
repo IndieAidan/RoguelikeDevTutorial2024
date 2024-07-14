@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dbnbynu1t2nx3" path="res://assets/textures/Backterria_32x32_1.png" id="3_54o3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2204h"]
-size = Vector2(32, 32)
+size = Vector2(30, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vt4s6"]
 atlas = ExtResource("3_54o3v")
@@ -66,7 +66,7 @@ animation = &"moving"
 autoplay = "idle"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 24)
+target_position = Vector2(0, 32)
 collision_mask = 29
 hit_from_inside = true
 collide_with_areas = true
