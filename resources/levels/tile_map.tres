@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://k2d7cqtwdddo"]
+[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://k2d7cqtwdddo"]
 
 [ext_resource type="Texture2D" uid="uid://ckk7t36ih40i2" path="res://assets/textures/environments/lab_tileset_spritesheet_oryx.png" id="1_e1ekj"]
 [ext_resource type="Texture2D" uid="uid://dbnbynu1t2nx3" path="res://assets/textures/Backterria_32x32_1.png" id="2_26jou"]
 [ext_resource type="PackedScene" uid="uid://ci3yjueuftoq4" path="res://scenes/props/walltorch.tscn" id="3_adyla"]
+[ext_resource type="PackedScene" uid="uid://bhjanw7bnf27h" path="res://scenes/props/campfire.tscn" id="4_3fjmy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3uwdf"]
 texture = ExtResource("1_e1ekj")
@@ -5781,6 +5782,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7tykl"]
 scenes/1/scene = ExtResource("3_adyla")
+scenes/2/scene = ExtResource("4_3fjmy")
 
 [resource]
 tile_size = Vector2i(32, 32)

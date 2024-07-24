@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bal0a2r3npsbs"]
+[gd_scene load_steps=11 format=3 uid="uid://bal0a2r3npsbs"]
 
 [ext_resource type="Script" path="res://scripts/actors/player.gd" id="1_iga0k"]
 [ext_resource type="PackedScene" uid="uid://btchh0no0pvt5" path="res://scenes/components/health_component.tscn" id="2_sqc82"]
 [ext_resource type="Texture2D" uid="uid://dbnbynu1t2nx3" path="res://assets/textures/Backterria_32x32_1.png" id="3_54o3v"]
+[ext_resource type="Texture2D" uid="uid://deppiuwr0oo5r" path="res://assets/textures/ranges/TestPlayerView_10TileWide.png" id="4_xycdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2204h"]
 size = Vector2(30, 30)
@@ -53,6 +54,10 @@ collision_layer = 2
 collision_mask = 125
 script = ExtResource("1_iga0k")
 
+[node name="TestView" type="Sprite2D" parent="."]
+light_mask = 0
+texture = ExtResource("4_xycdr")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2204h")
 
@@ -70,3 +75,6 @@ target_position = Vector2(0, 32)
 collision_mask = 29
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)

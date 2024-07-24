@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhjanw7bnf27h"]
+
+[ext_resource type="Texture2D" uid="uid://dbnbynu1t2nx3" path="res://assets/textures/Backterria_32x32_1.png" id="1_htgha"]
+[ext_resource type="Texture2D" uid="uid://bmaeam7tqu865" path="res://assets/textures/ranges/32x32_Range_3-Wide.png" id="2_lv7id"]
+[ext_resource type="Texture2D" uid="uid://bx3uv8mgbxwgd" path="res://assets/textures/ranges/32x32_Range_6-Wide.png" id="3_3xdsr"]
+[ext_resource type="Texture2D" uid="uid://dbj87wmknc2p" path="res://assets/textures/ranges/32x32_Range_9-Wide.png" id="4_mkdfs"]
+
+[node name="Campfire" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_htgha")
+region_enabled = true
+region_rect = Rect2(160, 736, 32, 32)
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="HighLight" type="PointLight2D" parent="Lights"]
+energy = 0.1
+texture = ExtResource("2_lv7id")
+
+[node name="MediumLight" type="PointLight2D" parent="Lights"]
+energy = 0.1
+texture = ExtResource("3_3xdsr")
+
+[node name="LowLight" type="PointLight2D" parent="Lights"]
+energy = 0.1
+texture = ExtResource("4_mkdfs")
+
+[node name="High" type="Area2D" parent="Lights"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights/High"]
+
+[node name="Medium" type="Area2D" parent="Lights"]
+
+[node name="Low" type="Area2D" parent="Lights"]
