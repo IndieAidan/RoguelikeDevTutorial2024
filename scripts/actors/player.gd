@@ -4,6 +4,7 @@ extends Area2D
 @onready var ray = $RayCast2D
 @onready var moving = false
 @onready var turn_length = 0.1 # time each turn takes in seconds
+@onready var light_level = 0
 
 # --- Stats --- 
 @export var strength: int = 10
@@ -11,6 +12,7 @@ extends Area2D
 @export var dexterity: int = 10
 @export var intelligence: int = 10
 @export var endurance: int = 10
+
 
 # Initial grid movement taken from my initial roguelike project, which was based on a youtube video (I forget which)
 # and from KidsCanCode https://kidscancode.org/godot_recipes/4.x/2d/grid_movement/
@@ -44,6 +46,7 @@ func move(dir):
 		$AnimatedSprite2D.flip_h = false
 	if !ray.is_colliding():
 		print(dir)
+		print("current light level: ", light_level)
 		$AnimatedSprite2D.play("moving")
 		var tween = create_tween()
 		tween.tween_property(self, "position", position + inputs[dir] * TILE_SIZE, turn_length).set_trans(Tween.TRANS_SINE)
@@ -59,3 +62,9 @@ func move(dir):
 func move_false():
 	moving = false
 	$AnimatedSprite2D.play("idle")
+
+func increase_lightlevel():
+	light_level += 1
+
+func decrease_lightlevel():
+	light_level -= 1

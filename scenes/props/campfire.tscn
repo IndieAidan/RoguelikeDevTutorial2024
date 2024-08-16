@@ -1,11 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhjanw7bnf27h"]
+[gd_scene load_steps=6 format=3 uid="uid://bhjanw7bnf27h"]
 
 [ext_resource type="Texture2D" uid="uid://dbnbynu1t2nx3" path="res://assets/textures/Backterria_32x32_1.png" id="1_htgha"]
+[ext_resource type="Script" path="res://scripts/props/campfire.gd" id="1_oj7om"]
 [ext_resource type="Texture2D" uid="uid://bmaeam7tqu865" path="res://assets/textures/ranges/32x32_Range_3-Wide.png" id="2_lv7id"]
 [ext_resource type="Texture2D" uid="uid://bx3uv8mgbxwgd" path="res://assets/textures/ranges/32x32_Range_6-Wide.png" id="3_3xdsr"]
 [ext_resource type="Texture2D" uid="uid://dbj87wmknc2p" path="res://assets/textures/ranges/32x32_Range_9-Wide.png" id="4_mkdfs"]
 
 [node name="Campfire" type="Node2D"]
+script = ExtResource("1_oj7om")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_lv7id")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_3xdsr")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_mkdfs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_htgha")
@@ -27,9 +41,39 @@ energy = 0.1
 texture = ExtResource("4_mkdfs")
 
 [node name="High" type="Area2D" parent="Lights"]
+collision_layer = 32768
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights/High"]
+[node name="Range_3Wide_NoShrink" type="CollisionPolygon2D" parent="Lights/High"]
+visible = false
+polygon = PackedVector2Array(48, -80, 80, -80, 80, -48, 112, -48, 112, 48, 80, 48, 80, 80, 48, 80, 48, 112, -48, 112, -48, 80, -80, 80, -80, 48, -112, 48, -112, -48, -80, -48, -80, -80, -48, -80, -48, -112, 48, -112)
+
+[node name="Range_3Wide_1PixShrink" type="CollisionPolygon2D" parent="Lights/High"]
+visible = false
+polygon = PackedVector2Array(47, -80, 48, -80, 48, -79, 79, -79, 79, -48, 80, -48, 80, -47, 111, -47, 111, 47, 80, 47, 80, 48, 79, 48, 79, 79, 48, 79, 48, 80, 47, 80, 47, 111, -47, 111, -47, 80, -48, 80, -48, 79, -79, 79, -79, 48, -80, 48, -80, 47, -111, 47, -111, -47, -80, -47, -80, -48, -79, -48, -79, -79, -48, -79, -48, -80, -47, -80, -47, -111, 47, -111)
+
+[node name="Range_3Wide_2PixShrink" type="CollisionPolygon2D" parent="Lights/High"]
+visible = false
+polygon = PackedVector2Array(46, -80, 47, -80, 47, -79, 48, -79, 48, -78, 78, -78, 78, -48, 79, -48, 79, -47, 80, -47, 80, -46, 110, -46, 110, 46, 80, 46, 80, 47, 79, 47, 79, 48, 78, 48, 78, 78, 48, 78, 48, 79, 47, 79, 47, 80, 46, 80, 46, 110, -46, 110, -46, 80, -47, 80, -47, 79, -48, 79, -48, 78, -78, 78, -78, 48, -79, 48, -79, 47, -80, 47, -80, 46, -110, 46, -110, -46, -80, -46, -80, -47, -79, -47, -79, -48, -78, -48, -78, -78, -48, -78, -48, -79, -47, -79, -47, -80, -46, -80, -46, -110, 46, -110)
+
+[node name="Range_3Wide_2PixShrink_2Simplify" type="CollisionPolygon2D" parent="Lights/High"]
+visible = false
+polygon = PackedVector2Array(48, -81.9, 80, -79.9, 80, -48.8, 80.8, -48, 112, -48, 112, 48, 81.9, 48, 79.9, 80, 48.8, 80, 48, 80.8, 48, 112, -48, 112, -48, 81.9, -80, 79.9, -80, 48.8, -80.8, 48, -112, 48, -112, -48, -81.9, -48, -79.9, -80, -48.8, -80, -48, -80.8, -48, -112, 48, -112)
+
+[node name="Range_3Wide_5PixShrink_2Simp" type="CollisionPolygon2D" parent="Lights/High"]
+polygon = PackedVector2Array(45, -80.8, 48.8, -77, 77, -77, 77, -48.5, 78.2, -46, 80, -46, 109, -45, 109, 45, 80.8, 45, 77, 48.8, 77, 77, 48.5, 77, 46, 78.3, 46, 80, 45, 109, -45, 109, -45, 80.8, -48.8, 77, -77, 77, -77, 48.5, -78.3, 46, -80, 46, -109, 45, -109, -44.9, -78.9, -45.9, -76.9, -77, -48.8, -77, -45, -80.8, -45, -109, 45, -109)
 
 [node name="Medium" type="Area2D" parent="Lights"]
+collision_layer = 32768
+
+[node name="Range_6Wide_5Pixshrink" type="CollisionPolygon2D" parent="Lights/Medium"]
+polygon = PackedVector2Array(77, -176.8, 80.8, -173, 141, -173, 141, -144.8, 144.8, -141, 173, -141, 173, -80.8, 176.8, -77, 205, -77, 205, 77, 176.8, 77, 173, 80.8, 173, 141, 144.8, 141, 141, 144.8, 141, 173, 80.3, 173, 79, 173.4, 76.9, 205, -76.9, 205, -78.9, 174, -80, 174, -141, 173, -141, 144.8, -144.8, 141, -173, 141, -173, 80.8, -176.8, 77, -205, 77, -205, -77, -176.8, -77, -173, -80.8, -173, -141, -144.8, -141, -141, -144.8, -141, -173, -80.8, -173, -77, -176.8, -77, -205, 77, -205)
 
 [node name="Low" type="Area2D" parent="Lights"]
+collision_layer = 32768
+
+[node name="Range_9Wide_5PixShrink" type="CollisionPolygon2D" parent="Lights/Low"]
+polygon = PackedVector2Array(107, -272, 108, -272, 108, -269, 109, -269, 109, -268, 112, -268, 112, -267, 171, -267, 171, -240, 172, -240, 172, -237, 173, -237, 173, -236, 176, -236, 176, -235, 203, -235, 203, -208, 204, -208, 204, -205, 205, -205, 205, -204, 208, -204, 208, -203, 235, -203, 235, -176, 236, -176, 236, -173, 237, -173, 237, -172, 240, -172, 240, -171, 267, -171, 267, -112, 268, -112, 268, -109, 269, -109, 269, -108, 272, -108, 272, -107, 299, -107, 299, 107, 272, 107, 272, 108, 269, 108, 269, 109, 268, 109, 268, 112, 267, 112, 267, 171, 240, 171, 240, 172, 237, 172, 237, 173, 236, 173, 236, 176, 235, 176, 235, 203, 208, 203, 208, 204, 205, 204, 205, 205, 204, 205, 204, 208, 203, 208, 203, 235, 176, 235, 176, 236, 173, 236, 173, 237, 172, 237, 172, 240, 171, 240, 171, 267, 112, 267, 112, 268, 109, 268, 109, 269, 108, 269, 108, 272, 107, 272, 107, 299, -107, 299, -107, 272, -108, 272, -108, 269, -109, 269, -109, 268, -112, 268, -112, 267, -171, 267, -171, 240, -172, 240, -172, 237, -173, 237, -173, 236, -176, 236, -176, 235, -203, 235, -203, 208, -204, 208, -204, 205, -205, 205, -205, 204, -208, 204, -208, 203, -235, 203, -235, 176, -236, 176, -236, 173, -237, 173, -237, 172, -240, 172, -240, 171, -267, 171, -267, 112, -268, 112, -268, 109, -269, 109, -269, 108, -272, 108, -272, 107, -299, 107, -299, -107, -272, -107, -272, -108, -269, -108, -269, -109, -268, -109, -268, -112, -267, -112, -267, -171, -240, -171, -240, -172, -237, -172, -237, -173, -236, -173, -236, -176, -235, -176, -235, -203, -208, -203, -208, -204, -205, -204, -205, -205, -204, -205, -204, -208, -203, -208, -203, -235, -176, -235, -176, -236, -173, -236, -173, -237, -172, -237, -172, -240, -171, -240, -171, -267, -112, -267, -112, -268, -109, -268, -109, -269, -108, -269, -108, -272, -107, -272, -107, -299, 107, -299)
+
+[connection signal="area_entered" from="Lights/High" to="." method="_on_high_area_entered"]
+[connection signal="body_entered" from="Lights/High" to="." method="_on_high_body_entered"]
+[connection signal="body_exited" from="Lights/High" to="." method="_on_high_body_exited"]

@@ -51,6 +51,14 @@ move_down={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_16="Lighting"
+
+[navigation]
+
+2d/default_cell_size=32.0
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
