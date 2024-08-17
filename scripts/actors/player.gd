@@ -25,6 +25,7 @@ func _ready():
 	position = position.snapped(Vector2.ONE * TILE_SIZE)
 	position += Vector2.ONE * TILE_SIZE/2
 	$AnimatedSprite2D.flip_h = true
+	print("player loaded")
 
 func _unhandled_input(event):
 	if moving:
@@ -62,6 +63,10 @@ func move(dir):
 func move_false():
 	moving = false
 	$AnimatedSprite2D.play("idle")
+
+func change_light_level(amount):
+	light_level += amount
+	print("Player Light Level is ", light_level)
 
 func increase_lightlevel():
 	light_level += 1

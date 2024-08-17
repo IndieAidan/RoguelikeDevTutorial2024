@@ -53,6 +53,7 @@ max_ms_per_frame = 10
 script = SubResource("GDScript_sq3cg")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 position = Vector2(336, 304)
 energy = 0.8
 blend_mode = 1

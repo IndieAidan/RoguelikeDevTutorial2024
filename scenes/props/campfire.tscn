@@ -30,18 +30,22 @@ region_rect = Rect2(160, 736, 32, 32)
 
 [node name="HighLight" type="PointLight2D" parent="Lights"]
 energy = 0.1
+shadow_enabled = true
 texture = ExtResource("2_lv7id")
 
 [node name="MediumLight" type="PointLight2D" parent="Lights"]
 energy = 0.1
+shadow_enabled = true
 texture = ExtResource("3_3xdsr")
 
 [node name="LowLight" type="PointLight2D" parent="Lights"]
 energy = 0.1
+shadow_enabled = true
 texture = ExtResource("4_mkdfs")
 
 [node name="High" type="Area2D" parent="Lights"]
 collision_layer = 32768
+collision_mask = 3
 
 [node name="Range_3Wide_NoShrink" type="CollisionPolygon2D" parent="Lights/High"]
 visible = false
@@ -73,6 +77,12 @@ collision_layer = 32768
 
 [node name="Range_9Wide_5PixShrink" type="CollisionPolygon2D" parent="Lights/Low"]
 polygon = PackedVector2Array(107, -272, 108, -272, 108, -269, 109, -269, 109, -268, 112, -268, 112, -267, 171, -267, 171, -240, 172, -240, 172, -237, 173, -237, 173, -236, 176, -236, 176, -235, 203, -235, 203, -208, 204, -208, 204, -205, 205, -205, 205, -204, 208, -204, 208, -203, 235, -203, 235, -176, 236, -176, 236, -173, 237, -173, 237, -172, 240, -172, 240, -171, 267, -171, 267, -112, 268, -112, 268, -109, 269, -109, 269, -108, 272, -108, 272, -107, 299, -107, 299, 107, 272, 107, 272, 108, 269, 108, 269, 109, 268, 109, 268, 112, 267, 112, 267, 171, 240, 171, 240, 172, 237, 172, 237, 173, 236, 173, 236, 176, 235, 176, 235, 203, 208, 203, 208, 204, 205, 204, 205, 205, 204, 205, 204, 208, 203, 208, 203, 235, 176, 235, 176, 236, 173, 236, 173, 237, 172, 237, 172, 240, 171, 240, 171, 267, 112, 267, 112, 268, 109, 268, 109, 269, 108, 269, 108, 272, 107, 272, 107, 299, -107, 299, -107, 272, -108, 272, -108, 269, -109, 269, -109, 268, -112, 268, -112, 267, -171, 267, -171, 240, -172, 240, -172, 237, -173, 237, -173, 236, -176, 236, -176, 235, -203, 235, -203, 208, -204, 208, -204, 205, -205, 205, -205, 204, -208, 204, -208, 203, -235, 203, -235, 176, -236, 176, -236, 173, -237, 173, -237, 172, -240, 172, -240, 171, -267, 171, -267, 112, -268, 112, -268, 109, -269, 109, -269, 108, -272, 108, -272, 107, -299, 107, -299, -107, -272, -107, -272, -108, -269, -108, -269, -109, -268, -109, -268, -112, -267, -112, -267, -171, -240, -171, -240, -172, -237, -172, -237, -173, -236, -173, -236, -176, -235, -176, -235, -203, -208, -203, -208, -204, -205, -204, -205, -205, -204, -205, -204, -208, -203, -208, -203, -235, -176, -235, -176, -236, -173, -236, -173, -237, -172, -237, -172, -240, -171, -240, -171, -267, -112, -267, -112, -268, -109, -268, -109, -269, -108, -269, -108, -272, -107, -272, -107, -299, 107, -299)
+
+[node name="OcclusionChecker" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 2)
+collision_mask = 2048
+collide_with_areas = true
 
 [connection signal="area_entered" from="Lights/High" to="." method="_on_high_area_entered"]
 [connection signal="body_entered" from="Lights/High" to="." method="_on_high_body_entered"]

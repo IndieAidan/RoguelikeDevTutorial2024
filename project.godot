@@ -53,6 +53,7 @@ move_down={
 
 [layer_names]
 
+2d_physics/layer_12="LightOcclusionMaskMimic"
 2d_physics/layer_16="Lighting"
 
 [navigation]
