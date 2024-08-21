@@ -6,6 +6,8 @@ extends Node
 @onready var light_level = 0
 @onready var light_occlusion_checker = %OcclusionChecker
 
+@onready var TILE_SIZE: int = 32
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Level started: Campfire")
@@ -36,7 +38,31 @@ func _on_high_body_entered(body):
 func _on_high_area_entered(area):
 	print("area entered")
 	if area.has_method("change_light_level"):
+		var target_position =  area.global_position + Vector2(0,0) - self.global_position
+		#if area.centre_marker_pos:
+			#target_position =  area.centre_marker_pos.global_position - self.global_position
+		print("target_position: ", target_position)
+		light_occlusion_checker.target_position = target_position
+		light_occlusion_checker.force_raycast_update()
 		if !light_occlusion_checker.is_colliding():
+			print("light hits the target")
 			area.change_light_level(1)
 			print("has light level spec")
+			print("-----------------------------")
 			##body.increase_lightlevel
+
+
+func _on_high_area_exited(area):
+	print("area exited")
+	if area.has_method("change_light_level"):
+		var target_position =  area.global_position + Vector2(0,0) - self.global_position
+		#if area.centre_marker_pos:
+			#target_position =  area.centre_marker_pos.global_position - self.global_position
+		print("target_position: ", target_position)
+		light_occlusion_checker.target_position = target_position
+		light_occlusion_checker.force_raycast_update()
+		if !light_occlusion_checker.is_colliding():
+			print("The Target Darkens")
+			area.change_light_level(-1)
+			print("has light level spec")
+			print("-----------------------------")

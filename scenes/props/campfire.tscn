@@ -9,6 +9,23 @@
 [node name="Campfire" type="Node2D"]
 script = ExtResource("1_oj7om")
 
+[node name="UnusedArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="Range_3Wide_NoShrink" type="CollisionPolygon2D" parent="UnusedArea"]
+polygon = PackedVector2Array(48, -80, 80, -80, 80, -48, 112, -48, 112, 48, 80, 48, 80, 80, 48, 80, 48, 112, -48, 112, -48, 80, -80, 80, -80, 48, -112, 48, -112, -48, -80, -48, -80, -80, -48, -80, -48, -112, 48, -112)
+
+[node name="Range_3Wide_1PixShrink" type="CollisionPolygon2D" parent="UnusedArea"]
+polygon = PackedVector2Array(47, -80, 48, -80, 48, -79, 79, -79, 79, -48, 80, -48, 80, -47, 111, -47, 111, 47, 80, 47, 80, 48, 79, 48, 79, 79, 48, 79, 48, 80, 47, 80, 47, 111, -47, 111, -47, 80, -48, 80, -48, 79, -79, 79, -79, 48, -80, 48, -80, 47, -111, 47, -111, -47, -80, -47, -80, -48, -79, -48, -79, -79, -48, -79, -48, -80, -47, -80, -47, -111, 47, -111)
+
+[node name="Range_3Wide_2PixShrink" type="CollisionPolygon2D" parent="UnusedArea"]
+polygon = PackedVector2Array(46, -80, 47, -80, 47, -79, 48, -79, 48, -78, 78, -78, 78, -48, 79, -48, 79, -47, 80, -47, 80, -46, 110, -46, 110, 46, 80, 46, 80, 47, 79, 47, 79, 48, 78, 48, 78, 78, 48, 78, 48, 79, 47, 79, 47, 80, 46, 80, 46, 110, -46, 110, -46, 80, -47, 80, -47, 79, -48, 79, -48, 78, -78, 78, -78, 48, -79, 48, -79, 47, -80, 47, -80, 46, -110, 46, -110, -46, -80, -46, -80, -47, -79, -47, -79, -48, -78, -48, -78, -78, -48, -78, -48, -79, -47, -79, -47, -80, -46, -80, -46, -110, 46, -110)
+
+[node name="Range_3Wide_2PixShrink_2Simplify" type="CollisionPolygon2D" parent="UnusedArea"]
+polygon = PackedVector2Array(48, -81.9, 80, -79.9, 80, -48.8, 80.8, -48, 112, -48, 112, 48, 81.9, 48, 79.9, 80, 48.8, 80, 48, 80.8, 48, 112, -48, 112, -48, 81.9, -80, 79.9, -80, 48.8, -80.8, 48, -112, 48, -112, -48, -81.9, -48, -79.9, -80, -48.8, -80, -48, -80.8, -48, -112, 48, -112)
+
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("2_lv7id")
@@ -47,32 +64,18 @@ texture = ExtResource("4_mkdfs")
 collision_layer = 32768
 collision_mask = 3
 
-[node name="Range_3Wide_NoShrink" type="CollisionPolygon2D" parent="Lights/High"]
-visible = false
-polygon = PackedVector2Array(48, -80, 80, -80, 80, -48, 112, -48, 112, 48, 80, 48, 80, 80, 48, 80, 48, 112, -48, 112, -48, 80, -80, 80, -80, 48, -112, 48, -112, -48, -80, -48, -80, -80, -48, -80, -48, -112, 48, -112)
-
-[node name="Range_3Wide_1PixShrink" type="CollisionPolygon2D" parent="Lights/High"]
-visible = false
-polygon = PackedVector2Array(47, -80, 48, -80, 48, -79, 79, -79, 79, -48, 80, -48, 80, -47, 111, -47, 111, 47, 80, 47, 80, 48, 79, 48, 79, 79, 48, 79, 48, 80, 47, 80, 47, 111, -47, 111, -47, 80, -48, 80, -48, 79, -79, 79, -79, 48, -80, 48, -80, 47, -111, 47, -111, -47, -80, -47, -80, -48, -79, -48, -79, -79, -48, -79, -48, -80, -47, -80, -47, -111, 47, -111)
-
-[node name="Range_3Wide_2PixShrink" type="CollisionPolygon2D" parent="Lights/High"]
-visible = false
-polygon = PackedVector2Array(46, -80, 47, -80, 47, -79, 48, -79, 48, -78, 78, -78, 78, -48, 79, -48, 79, -47, 80, -47, 80, -46, 110, -46, 110, 46, 80, 46, 80, 47, 79, 47, 79, 48, 78, 48, 78, 78, 48, 78, 48, 79, 47, 79, 47, 80, 46, 80, 46, 110, -46, 110, -46, 80, -47, 80, -47, 79, -48, 79, -48, 78, -78, 78, -78, 48, -79, 48, -79, 47, -80, 47, -80, 46, -110, 46, -110, -46, -80, -46, -80, -47, -79, -47, -79, -48, -78, -48, -78, -78, -48, -78, -48, -79, -47, -79, -47, -80, -46, -80, -46, -110, 46, -110)
-
-[node name="Range_3Wide_2PixShrink_2Simplify" type="CollisionPolygon2D" parent="Lights/High"]
-visible = false
-polygon = PackedVector2Array(48, -81.9, 80, -79.9, 80, -48.8, 80.8, -48, 112, -48, 112, 48, 81.9, 48, 79.9, 80, 48.8, 80, 48, 80.8, 48, 112, -48, 112, -48, 81.9, -80, 79.9, -80, 48.8, -80.8, 48, -112, 48, -112, -48, -81.9, -48, -79.9, -80, -48.8, -80, -48, -80.8, -48, -112, 48, -112)
-
 [node name="Range_3Wide_5PixShrink_2Simp" type="CollisionPolygon2D" parent="Lights/High"]
 polygon = PackedVector2Array(45, -80.8, 48.8, -77, 77, -77, 77, -48.5, 78.2, -46, 80, -46, 109, -45, 109, 45, 80.8, 45, 77, 48.8, 77, 77, 48.5, 77, 46, 78.3, 46, 80, 45, 109, -45, 109, -45, 80.8, -48.8, 77, -77, 77, -77, 48.5, -78.3, 46, -80, 46, -109, 45, -109, -44.9, -78.9, -45.9, -76.9, -77, -48.8, -77, -45, -80.8, -45, -109, 45, -109)
 
 [node name="Medium" type="Area2D" parent="Lights"]
+visible = false
 collision_layer = 32768
 
 [node name="Range_6Wide_5Pixshrink" type="CollisionPolygon2D" parent="Lights/Medium"]
 polygon = PackedVector2Array(77, -176.8, 80.8, -173, 141, -173, 141, -144.8, 144.8, -141, 173, -141, 173, -80.8, 176.8, -77, 205, -77, 205, 77, 176.8, 77, 173, 80.8, 173, 141, 144.8, 141, 141, 144.8, 141, 173, 80.3, 173, 79, 173.4, 76.9, 205, -76.9, 205, -78.9, 174, -80, 174, -141, 173, -141, 144.8, -144.8, 141, -173, 141, -173, 80.8, -176.8, 77, -205, 77, -205, -77, -176.8, -77, -173, -80.8, -173, -141, -144.8, -141, -141, -144.8, -141, -173, -80.8, -173, -77, -176.8, -77, -205, 77, -205)
 
 [node name="Low" type="Area2D" parent="Lights"]
+visible = false
 collision_layer = 32768
 
 [node name="Range_9Wide_5PixShrink" type="CollisionPolygon2D" parent="Lights/Low"]
@@ -85,5 +88,6 @@ collision_mask = 2048
 collide_with_areas = true
 
 [connection signal="area_entered" from="Lights/High" to="." method="_on_high_area_entered"]
+[connection signal="area_exited" from="Lights/High" to="." method="_on_high_area_exited"]
 [connection signal="body_entered" from="Lights/High" to="." method="_on_high_body_entered"]
 [connection signal="body_exited" from="Lights/High" to="." method="_on_high_body_exited"]

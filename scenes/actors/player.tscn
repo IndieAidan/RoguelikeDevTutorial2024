@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://deppiuwr0oo5r" path="res://assets/textures/ranges/TestPlayerView_10TileWide.png" id="4_xycdr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2204h"]
-size = Vector2(30, 30)
+size = Vector2(2, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vt4s6"]
 atlas = ExtResource("3_54o3v")
@@ -78,4 +78,7 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.75, 0.75)
+zoom = Vector2(2, 2)
+
+[node name="CentreMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true

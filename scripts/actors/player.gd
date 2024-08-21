@@ -6,6 +6,8 @@ extends Area2D
 @onready var turn_length = 0.1 # time each turn takes in seconds
 @onready var light_level = 0
 
+@onready var centre_marker_pos = %CentreMarker.global_position
+
 # --- Stats --- 
 @export var strength: int = 10
 @export var speed: int = 10
@@ -40,6 +42,7 @@ func _unhandled_input(event):
 
 func move(dir):
 	ray.target_position = inputs[dir] * TILE_SIZE
+	#ray.target_position = inputs[dir] * 16
 	ray.force_raycast_update()
 	if dir == "move_right":
 		$AnimatedSprite2D.flip_h = true
